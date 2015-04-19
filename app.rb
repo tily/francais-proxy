@@ -9,7 +9,12 @@ get '/' do
   yor = div.css('.yorcs')
   list = []
   mid.each_with_index do |x, i|
-    list << {mid: mid[i].text, hat: hat[i].text, yak: yak[i].text, yor: yor[i].text}
+    list << {
+      mid: mid[i].text.gsub(/\r/, ''),
+      hat: hat[i].text.gsub(/\r/, ''),
+      yak: yak[i].text.gsub(/\r/, ''),
+      yor: yor[i].text.gsub(/\r/, '')
+    }
   end
   list.to_json
 end
