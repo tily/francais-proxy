@@ -1,7 +1,4 @@
-require 'httparty'
-require 'nokogiri'
-require 'sinatra'
-require 'json'
+Bundler.require
 
 get '/' do
   doc = Nokogiri::HTML(HTTParty.post('http://9.dee.cc/~hakase2/tokuken.php', body: params))
